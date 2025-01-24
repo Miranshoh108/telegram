@@ -20,19 +20,19 @@ function switchUser() {
 }
 
 function updateUserProfile() {
-  let currentUser = localStorage.getItem(currentUserKey);
-  let profileImage = document.querySelector(".chat-header img");
-  let chatHeader = document.getElementById("chat-header");
-
-  if (currentUser === "Muhammad") {
-    chatHeader.innerText = "Sadullayev"; 
-    profileImage.src = "./img/images.png"; 
-  } else {
-    chatHeader.innerText = "Muhammad";
-    profileImage.src = "./img/download.jpg";
+    let currentUser = localStorage.getItem(currentUserKey);
+    let profileImage = document.querySelector(".chat-header img");
+    let chatHeader = document.getElementById("chat-header");
+  
+    if (currentUser === "Muhammad") {
+      chatHeader.innerText = "Sadullayev"; 
+      profileImage.src = "./img/images.png"; 
+    } else {
+      chatHeader.innerText = "Muhammad";
+      profileImage.src = "./img/download.jpg"; 
+    }
   }
-}
-
+  
 function sendMessage() {
   const input = document.getElementById("message-input");
   const messageText = input.value.trim();
