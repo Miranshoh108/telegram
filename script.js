@@ -20,19 +20,19 @@ function switchUser() {
 }
 
 function updateUserProfile() {
-    let currentUser = localStorage.getItem(currentUserKey);
-    let profileImage = document.querySelector(".chat-header img");
-    let chatHeader = document.getElementById("chat-header");
-  
-    if (currentUser === "Muhammad") {
-      chatHeader.innerText = "Sadullayev"; 
-      profileImage.src = "./img/images.png"; 
-    } else {
-      chatHeader.innerText = "Muhammad";
-      profileImage.src = "./img/download.jpg"; 
-    }
+  let currentUser = localStorage.getItem(currentUserKey);
+  let profileImage = document.querySelector(".chat-header img");
+  let chatHeader = document.getElementById("chat-header");
+
+  if (currentUser === "Muhammad") {
+    chatHeader.innerText = "Sadullayev";
+    profileImage.src = "./img/images.png";
+  } else {
+    chatHeader.innerText = "Muhammad";
+    profileImage.src = "./img/download.jpg";
   }
-  
+}
+
 function sendMessage() {
   const input = document.getElementById("message-input");
   const messageText = input.value.trim();
@@ -83,9 +83,13 @@ function loadChat() {
       }
 
       messageDiv.innerHTML = `
-          <strong>${msg.sender}:</strong> ${msg.text} 
+          <div class="massages_text">
+          <div> ${msg.text} </div>
+          <div class="icon_time">
           <span class="timestamp">${msg.timestamp}</span>
           <span class="delete-icon" onclick="deleteMessage(${index})">&#128465;</span>
+          </div>
+          </div>
         `;
 
       chatBox.appendChild(messageDiv);
@@ -103,3 +107,25 @@ function deleteMessage(index) {
 }
 
 setInterval(loadChat, 2000);
+
+function toggleProfileMenu() {
+  const profileMenu = document.getElementById("profile-menu");
+  const overlay = document.getElementById("overlay");
+  const currentUser = localStorage.getItem("selectedUser") || "Muhammad";
+
+  // Foydalanuvchi ma'lumotlarini yangilash
+  if (currentUser === "Muhammad") {
+    document.getElementById("profile-name").innerText = "Muhammad";
+  } else if (currentUser === "Sadullaev") {
+    document.getElementById("profile-name").innerText = "Sadullaev";
+  }
+
+  // Profil oynasini va orqa foni ko'rsatish
+  profileMenu.style.display = "block";
+  overlay.style.display = "block";
+}
+
+function closeProfileMenu() {
+  document.getElementById("profile-menu").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+}
