@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Telegram Clone</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <header>
+          <h2>Telegram</h2>
+          <input type="text" placeholder="Search" class="search-bar" />
+        </header>
+        <ul class="contacts">
+          <li onclick="selectUser('Muhammad')">
+            <img src="./img/download.jpg" />
+            <div class="contact-info">
+              <h3>Muhammad</h3>
+              <p>Last message...</p>
+            </div>
+          </li>
+          <li onclick="selectUser('Sadullsyev')">
+            <img src="./img/images.png" />
+            <div class="contact-info">
+              <h3>Sadullaev</h3>
+              <p></p>     
+            </div>
+          </li>`
+        </ul>
+      </aside>
+
+      <main class="chat-area">
+        <header class="chat-header">
+          <img src="./img/download.jpg" />
+          <h3 id="chat-header">Muhammad</h3>
+          <button class="btn" onclick="switchUser()">Almashtirish</button>
+        </header>
+        <div class="messages" id="messages"></div>
+        <div class="message-input">
+          <input
+            type="text"
+            id="message-input"
+            placeholder="Type a message..."
+          />
+          <button onclick="sendMessage()">Send</button>
+        </div>
+      </main>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
